@@ -48,8 +48,14 @@ newss2=chrome.find_elements_by_css_selector("#__layout > div > div.universalFram
 for new2 in newss2:
     # print(new2.text+"\n")
     # print(new2.get_attribute("href"))
-    title=new2.text.split("\n")[0]
-    source=new2.text.split("\n")[1]
+    if new2.text.split("\n")[0] =="影音":
+        title=new2.text.split("\n")[1]
+        source=new2.text.split("\n")[2]
+    else:
+        title=new2.text.split("\n")[0]
+        source=new2.text.split("\n")[1]
+    # title=new2.text.split("\n")[0]
+    # source=new2.text.split("\n")[1]
     url=new2.get_attribute("href")
     datas.append({
         'title':title,
