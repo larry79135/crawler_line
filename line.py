@@ -20,12 +20,9 @@ for new1 in newss1:
     else:
         title=new1.text.split("\n")[0]
         source=new1.text.split("\n")[1]
-    # title=new1.text.split("\n")[0]
-    # print(new1.text)
-    print('title',title)
-    # source=new1.text.split("\n")[1]
-    print('source',source)
-    # print(new1.get_attribute("href"))
+    
+    
+    
     url=new1.get_attribute("href")
     datas.append({
         'title':title,
@@ -46,16 +43,14 @@ for new1 in newss1:
 
 newss2=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(11) > div > section > div>a")
 for new2 in newss2:
-    # print(new2.text+"\n")
-    # print(new2.get_attribute("href"))
+    
     if new2.text.split("\n")[0] =="影音":
         title=new2.text.split("\n")[1]
         source=new2.text.split("\n")[2]
     else:
         title=new2.text.split("\n")[0]
         source=new2.text.split("\n")[1]
-    # title=new2.text.split("\n")[0]
-    # source=new2.text.split("\n")[1]
+    
     url=new2.get_attribute("href")
     datas.append({
         'title':title,
@@ -67,8 +62,7 @@ for new2 in newss2:
 print("===最多留言====")
 Mostmessages=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(13) > div > section > div.listModule >a")
 for message in Mostmessages:
-    # print(message.text+"\n")
-    # print(message.get_attribute("href"))
+    
     title=message.text.split("\n")[0]
     source=message.text.split("\n")[1]
     url=message.get_attribute("href")
