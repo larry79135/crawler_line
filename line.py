@@ -20,7 +20,7 @@ for new1 in newss1:
         source=new1.text.split("\n")[2]
     else:
         title=new1.text.split("\n")[0]
-        source=new1.text.spl#it("\n")[1]
+        source=new1.text.split("\n")[1]
     
     
     
