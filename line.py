@@ -11,6 +11,7 @@ chrome.execute_script("window.scrollTo(0,document.body.scrollHeight);");
 datas=[]
 C=list()
 index = 0
+#最新國內新聞 part1
 newss1=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(10) > div > section > div.listModule > a")
 for new1 in newss1:
     # print(new1.text+"\n")
@@ -19,7 +20,7 @@ for new1 in newss1:
         source=new1.text.split("\n")[2]
     else:
         title=new1.text.split("\n")[0]
-        source=new1.text.split("\n")[1]
+        source=new1.text.spl#it("\n")[1]
     
     
     
@@ -32,15 +33,8 @@ for new1 in newss1:
     })
     
     
-# for data in datas:
-#     i=data.get("url")
-#     chrome.get(i)
-#     time_before=chrome.find_element_by_css_selector("#__layout > div > div.universalFrame-wrap > div.swipeBack > div > div > div > div.entityPublishInfo > div > div > span.entityPublishInfo-meta-info.text.text--f.text--secondary.text--regular").text
-#     d = datetime.today() - timedelta(hours=int(time_before.split(' ')[1][:1]))
-#     datas[index]["time_before"] = d.strftime('%Y-%m-%d %H:%M')
-#     index=index+1
-# print("datas:",datas)
 
+#最新國內新聞 part2
 newss2=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(11) > div > section > div>a")
 for new2 in newss2:
     
@@ -60,6 +54,7 @@ for new2 in newss2:
     })
 
 print("===最多留言====")
+#最多留言
 Mostmessages=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(13) > div > section > div.listModule >a")
 for message in Mostmessages:
     
