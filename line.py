@@ -3,7 +3,9 @@ import requests,time,csv
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 
-chrome = webdriver.Chrome()
+option = webdriver.ChromeOptions()
+option.add_argument('headless')
+chrome = webdriver.Chrome(options=option)
 chrome.get("https://today.line.me/tw/v2/tab/domestic")
 chrome.execute_script("window.scrollTo(0,document.body.scrollHeight);");
 time.sleep(2)
@@ -14,13 +16,13 @@ index = 0
 #最新國內新聞 part1
 newss1=chrome.find_elements_by_css_selector("#__layout > div > div.universalFrame-wrap > div.main > div.main-wrap.main-wrap > div > div:nth-child(10) > div > section > div.listModule > a")
 for new1 in newss1:
-    # print(new1.text+"\n")
+    
     if new1.text.split("\n")[0] =="影音":
         title=new1.text.split("\n")[1]
         source=new1.text.split("\n")[2]
     else:
         title=new1.text.split("\n")[0]
-        source=new1.text.spl#it("\n")[1]
+        source=new1.text.split("\n")[1]
     
     
     
